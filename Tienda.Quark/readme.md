@@ -5,6 +5,9 @@ This is the final project of Quark's academy course in c#, which is an academy f
 
 - Requirements
 - Configuration
+- Diagram Class
+- Example
+- Develop
 
 ## Requirements
 
@@ -18,6 +21,11 @@ This module requires the following modules:
 1. Create database with name cotizacion.
 1. Lauch to server.
 1. It is ok, to play.
+
+## Diagram Class
+
+![Aquí la descripción de la imagen por si no carga](./DiagramaC.drawio.svg)
+
 
 # Example
 
