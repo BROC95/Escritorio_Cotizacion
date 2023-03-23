@@ -110,12 +110,13 @@ namespace Tienda.Quark
          bool calidad_premium = radioButton3.Checked;
          bool calidad_ = radioButton4.Checked;
          n += 1;
-
+            
             try
             {
                 int precio = Convert.ToInt32(textBox1.Text);
                 int cant = Convert.ToInt32(textBox2.Text);
-                if (radioButton1.Checked)
+
+                    if (radioButton1.Checked)
                 {
                     controllerTienda.tipo = "camisa";
                     bool manga = checkBox1.Checked;
@@ -125,13 +126,24 @@ namespace Tienda.Quark
                         Console.WriteLine("Camisa manga corta, cuello mao, calidad premium2222");
                         Console.WriteLine(ControllerCamisaList[0].calidad_premium);
                         label8.Text = ControllerCamisaList[0].cant.ToString();
-                        controllerTienda.calc = controllerTienda.cotizacionCamisa(ControllerCamisaList[0], n += 1, cant, precio, DateTime.Now);
+
+                        if (cant > ControllerCamisaList[0].cant)
+                        {
+                            MessageBox.Show("Error Cantidad solicitada fuera del stock");
+
+                        }
+                            controllerTienda.calc = controllerTienda.cotizacionCamisa(ControllerCamisaList[0], n += 1, cant, precio, DateTime.Now);
                         Console.WriteLine(controllerTienda.calc);
                     }
                     else if (manga == true && cuello == true && calidad_ == true)
                     {
                         Console.WriteLine("Camisa manga corta, cuello comun, calidad comun22");
                         label8.Text = ControllerCamisaList[1].cant.ToString();
+                        if (cant > ControllerCamisaList[1].cant)
+                        {
+                            MessageBox.Show("Error Cantidad solicitada fuera del stock");
+
+                        }
                         controllerTienda.calc = controllerTienda.cotizacionCamisa(ControllerCamisaList[1], n += 1, cant, precio, DateTime.Now);
                     }
 
@@ -139,36 +151,66 @@ namespace Tienda.Quark
                     {
                         Console.WriteLine("Camisa manga corta, cuello comun, calidad pre3333");
                         label8.Text = ControllerCamisaList[2].cant.ToString();
+                        if (cant > ControllerCamisaList[2].cant)
+                        {
+                            MessageBox.Show("Error Cantidad solicitada fuera del stock");
+
+                        }
                         controllerTienda.calc = controllerTienda.cotizacionCamisa(ControllerCamisaList[2], n += 1, cant, precio, DateTime.Now);
                     }
                     else if (manga == true && cuello == false && calidad_ == true)
                     {
                         Console.WriteLine("Camisa manga corta, cuello comun, calidad comun4444");
                         label8.Text = ControllerCamisaList[3].cant.ToString();
+                        if (cant > ControllerCamisaList[3].cant)
+                        {
+                            MessageBox.Show("Error Cantidad solicitada fuera del stock");
+
+                        }
                         controllerTienda.calc = controllerTienda.cotizacionCamisa(ControllerCamisaList[3], n += 1, cant, precio, DateTime.Now);
                     }
                     else if (manga == false && cuello == true && calidad_premium == true)
                     {
                         Console.WriteLine("Camisa manga larga, cuello mao, calidad premium5555");
                         label8.Text = ControllerCamisaList[4].cant.ToString();
+                        if (cant > ControllerCamisaList[4].cant)
+                        {
+                            MessageBox.Show("Error Cantidad solicitada fuera del stock");
+
+                        }
                         controllerTienda.calc = controllerTienda.cotizacionCamisa(ControllerCamisaList[4], n += 1, cant, precio, DateTime.Now);
                     }
                     else if (manga == false && cuello == true && calidad_ == true)
                     {
                         Console.WriteLine("Camisa manga larga, cuello normal, calidad premium66666");
                         label8.Text = ControllerCamisaList[5].cant.ToString();
+                        if (cant > ControllerCamisaList[5].cant)
+                        {
+                            MessageBox.Show("Error Cantidad solicitada fuera del stock");
+
+                        }
                         controllerTienda.calc = controllerTienda.cotizacionCamisa(ControllerCamisaList[5], n += 1, cant, precio, DateTime.Now);
                     }
                     else if (manga == false && cuello == false && calidad_premium == true)
                     {
                         Console.WriteLine("Camisa manga larga, cuello mao, calidad comun88888");
                         label8.Text = ControllerCamisaList[6].cant.ToString();
+                        if (cant > ControllerCamisaList[6].cant)
+                        {
+                            MessageBox.Show("Error Cantidad solicitada fuera del stock");
+
+                        }
                         controllerTienda.calc = controllerTienda.cotizacionCamisa(ControllerCamisaList[6], n += 1, cant, precio, DateTime.Now);
                     }
                     else if (manga == false && cuello == false && calidad_ == true)
                     {
                         Console.WriteLine("Camisa manga larga, cuello normal, calidad comun77777");
                         label8.Text = ControllerCamisaList[7].cant.ToString();
+                        if (cant > ControllerCamisaList[7].cant)
+                        {
+                            MessageBox.Show("Error Cantidad solicitada superior al stock contizado");
+
+                        }
                         controllerTienda.calc = controllerTienda.cotizacionCamisa(ControllerCamisaList[7], n += 1, cant, precio, DateTime.Now);
                     }
 
@@ -225,6 +267,8 @@ namespace Tienda.Quark
                     ConnectionBD.createCotizacion(dbCon.conn, controllerTienda);
                     ConnectionBD.Close(dbCon.conn);
                 }
+
+                
             }
             catch(Exception ex) {
 

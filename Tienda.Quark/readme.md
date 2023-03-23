@@ -19,6 +19,16 @@ This module requires the following modules:
 1. Lauch to server.
 1. It is ok, to play.
 
+# Example
+
+View of proyect
+
+![Aquí la descripción de la imagen por si no carga](./im_main.png)
+
+View of click historial
+
+![Aquí la descripción de la imagen por si no carga](./im_read.png)
+
    ## Develop
 
 - Breyner Ocampo C. - [github](https://github.com/BROC95)
